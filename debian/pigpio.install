@@ -1,0 +1,5 @@
+debian/tmp/opt
+debian/tmp/usr/lib/*.so*
+debian/tmp/usr/include
+debian/tmp/usr/man
+debian/tmp/usr/bin

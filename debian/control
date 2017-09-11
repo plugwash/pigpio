@@ -1,0 +1,39 @@
+Source: pigpio
+Section: utils
+Priority: optional
+Maintainer: Serge Schneider <serge@raspberrypi.org>
+Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools,
+  python3-all, python3-setuptools, dh-systemd
+Standards-Version: 3.9.6
+Homepage: http://abyz.co.uk/rpi/pigpio/
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.2
+
+Package: pigpio
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Library for Raspberry Pi GPIO control
+  Library for the Raspberry which allows control of the General Purpose Input
+  Outputs (GPIO).
+  .
+  pigpio is written in C but may be used by other languages.
+  In particular the pigpio daemon offers a socket and pipe interface to the
+  underlying library.
+
+Package: python-pigpio
+Section: python
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Recommends: pigpio
+Description: Python module which talks to the pigpio daemon (Python 2)
+  Library for the Raspberry which allows control of the General Purpose Input
+  Outputs (GPIO).
+
+Package: python3-pigpio
+Section: python
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Recommends: pigpio
+Description: Python module which talks to the pigpio daemon (Python 3)
+  Library for the Raspberry which allows control of the General Purpose Input
+  Outputs (GPIO).
