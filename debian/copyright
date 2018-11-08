@@ -3,7 +3,13 @@ Upstream-Name: pigpio
 Source: http://abyz.co.uk/rpi/pigpio/
 
 Files: *
-Copyright: 2013 Joan <joan@abyz.co.uk>
+Copyright: 2013-2018 Joan <joan@abyz.co.uk>
+License: unlicense
+
+Files: util/pigpiod.service
+Copyright: 2017 Alexandre Bury, 2018 Joan <joan@abyz.co.uk>
+License: unlicense
+
 License: unlicense
  This is free and unencumbered software released into the public domain.
  .
