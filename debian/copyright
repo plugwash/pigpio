@@ -3,12 +3,17 @@ Upstream-Name: pigpio
 Source: http://abyz.co.uk/rpi/pigpio/
 
 Files: *
-Copyright: 2013-2018 Joan <joan@abyz.co.uk>
+Copyright: 2013-2018 Joan <joan@abyz.co.uk>, Björn Schrader, Joey Parrish, Gergely Budai, Damien DALY, Alexander Schaefer, TheRaspyDev, Stephen Lyons, Eric Sorton, Dan Brown, Guy McSwain, Mathias Lüdtke, Floris Bos, Jason Diamond, maihde, Damien Stuart, Ben Nuttall
 License: unlicense
 
 Files: util/pigpiod.service
 Copyright: 2017 Alexandre Bury, 2018 Joan <joan@abyz.co.uk>
 License: unlicense
+
+Files: CMakeLists.txt
+Copyright: 2018 Matthew Webb
+License: unlicense
+
 
 License: unlicense
  This is free and unencumbered software released into the public domain.
