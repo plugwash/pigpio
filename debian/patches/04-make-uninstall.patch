@@ -1,0 +1,18 @@
+commit 2988acaaa65784ca7633669cbd5a58d3f3ee7bd1
+Author: Peter Michael Green <plugwash@debian.org>
+Date:   Fri Nov 9 00:32:38 2018 +0000
+
+    Make "make uninstall" uninstall all man pages.
+
+diff --git a/Makefile b/Makefile
+index 753a9a3..b73505a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -129,6 +129,7 @@ uninstall:
+ 	if which python2; then python2 setup.py install $(PYINSTALLARGS) --record /tmp/pigpio >/dev/null; sed 's!^!$(DESTDIR)!' < /tmp/pigpio | xargs rm -f >/dev/null; fi
+ 	if which python3; then python3 setup.py install $(PYINSTALLARGS) --record /tmp/pigpio >/dev/null; sed 's!^!$(DESTDIR)!' < /tmp/pigpio | xargs rm -f >/dev/null; fi
+ 	rm -f $(DESTDIR)$(mandir)/man1/pig*.1
++	rm -f $(DESTDIR)$(mandir)/man1/libpigpio*.1
+ 	rm -f $(DESTDIR)$(mandir)/man3/pig*.3
+ ifeq ($(DESTDIR),)
+ 	ldconfig

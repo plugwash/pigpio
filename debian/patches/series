@@ -1,1 +1,8 @@
 01-prefix.patch
+02-add-soversion.patch
+03-fix-destdir.patch
+04-make-uninstall.patch
+05-detect-rpi.patch
+06-64-bit-clean.patch
+07-arm64-pi-detection.patch
+08-dont-install-libs-as-manpages.patch
