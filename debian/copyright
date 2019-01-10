@@ -3,7 +3,7 @@ Upstream-Name: pigpio
 Source: http://abyz.co.uk/rpi/pigpio/
 
 Files: *
-Copyright: 2013-2018 Joan <joan@abyz.co.uk>, Björn Schrader, Joey Parrish, Gergely Budai, Damien DALY, Alexander Schaefer, TheRaspyDev, Stephen Lyons, Eric Sorton, Dan Brown, Guy McSwain, Mathias Lüdtke, Floris Bos, Jason Diamond, maihde, Damien Stuart, Ben Nuttall
+Copyright: 2013-2018 Joan <joan@abyz.co.uk>, Björn Schrader, Joey Parrish, Gergely Budai, Damien DALY, Alexander Schaefer, TheRaspyDev, Stephen Lyons, Eric Sorton, Dan Brown, Guy McSwain, Mathias Lüdtke, Floris Bos, Jason Diamond, maihde, Damien Stuart, Ben Nuttall, Peter Green
 License: unlicense
 
 Files: util/pigpiod.service
