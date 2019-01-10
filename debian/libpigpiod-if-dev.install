@@ -1,4 +1,2 @@
 debian/tmp/usr/lib/libpigpiod_if*.so
 debian/tmp/usr/include/pigpiod_if*.h
-debian/tmp/usr/man/man3/pigpiod_if.3
-debian/tmp/usr/man/man3/pigpiod_if2.3
