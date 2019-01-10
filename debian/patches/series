@@ -6,3 +6,4 @@
 07-arm64-pi-detection.patch
 08-dont-install-libs-as-manpages.patch
 09-filelayout.patch
+10-use-pthread-for-shared-libs.patch
