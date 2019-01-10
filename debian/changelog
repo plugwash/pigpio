@@ -1,6 +1,6 @@
 pigpio (1.68-1) unstable; urgency=medium
 
-  * Initial upload to Debian.
+  * Initial upload to Debian (Closes: 908787).
   * Update debian/copyright with far more detail.
   * Package only client stuff for now, the server stuff is incompatible with
     Debian kernels.
