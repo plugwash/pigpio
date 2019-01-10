@@ -2,8 +2,8 @@ Source: pigpio
 Section: utils
 Priority: optional
 Maintainer: Peter Michael Green <plugwash@debian.org>
-Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools,
-  python3-all, python3-setuptools, dh-systemd
+Build-Depends: debhelper (>= 9.20160709), dh-python, python-all, python-setuptools,
+  python3-all, python3-setuptools
 Standards-Version: 4.2.0
 Homepage: http://abyz.co.uk/rpi/pigpio/
 X-Python-Version: >= 2.6
