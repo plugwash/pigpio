@@ -11,7 +11,8 @@ pigpio (1.68-1) unstable; urgency=medium
     + Add soversion to shared libraries.
   * Apply patches to add raspberry pi detection and make code build on
     64-bit without warnings.
-  * Split packaging to comply with Debian policy. 
+  * Split packaging to comply with Debian policy.
+  * Update standards version to 4.2.0
 
  -- Peter Michael Green <plugwash@debian.org>  Thu, 10 Jan 2019 12:31:08 +0000
 
