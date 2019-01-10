@@ -1,7 +1,7 @@
 Source: pigpio
 Section: utils
 Priority: optional
-Maintainer: Serge Schneider <serge@raspberrypi.org>
+Maintainer: Peter Michael Green <plugwash@debian.org>
 Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools,
   python3-all, python3-setuptools, dh-systemd
 Standards-Version: 4.2.0
@@ -9,16 +9,46 @@ Homepage: http://abyz.co.uk/rpi/pigpio/
 X-Python-Version: >= 2.6
 X-Python3-Version: >= 3.2
 
-Package: pigpio
+Package: libpigpiod-if2-1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Library for Raspberry Pi GPIO control
-  Library for the Raspberry which allows control of the General Purpose Input
-  Outputs (GPIO).
-  .
-  pigpio is written in C but may be used by other languages.
-  In particular the pigpio daemon offers a socket and pipe interface to the
-  underlying library.
+Description: Client library for Raspberry Pi GPIO control
+ Pigpio is a set of software which allows control of the General Purpose Input
+ Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
+ in Debian as the server side is incompatible with Debian kernels.
+ .
+ This package provides the libpigpiod_if2 client library
+
+Package: libpigpiod-if1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Client library for Raspberry Pi GPIO control (deprecated)
+ Pigpio is a set of software which allows control of the General Purpose Input
+ Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
+ in Debian as the server side is incompatible with Debian kernels.
+ .
+ This package provides the deprecated libpigpiod_if client library
+
+Package: libpigpiod-if-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Client tools for Raspberry Pi GPIO control
+ Pigpio is a set of software which allows control of the General Purpose Input
+ Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
+ in Debian as the server side is incompatible with Debian kernels.
+ .
+ This package provides development headers for the libpigpiod_if2 and
+ libpigpiod_if client libraries.
+
+Package: pigpio-tools
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Client tools for Raspberry Pi GPIO control
+ Pigpio is a set of software which allows control of the General Purpose Input
+ Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
+ in Debian as the server side is incompatible with Debian kernels.
+ .
+ This package provides the pigs and pig2vcd tools.
 
 Package: python-pigpio
 Section: python
@@ -26,8 +56,11 @@ Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}
 Recommends: pigpio
 Description: Python module which talks to the pigpio daemon (Python 2)
-  Library for the Raspberry which allows control of the General Purpose Input
-  Outputs (GPIO).
+ Pigpio is a set of software which allows control of the General Purpose Input
+ Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
+ in Debian as the server side is incompatible with Debian kernels.
+ .
+ This package provides the python 2 client library.
 
 Package: python3-pigpio
 Section: python
@@ -35,5 +68,8 @@ Architecture: all
 Depends: ${misc:Depends}, ${python3:Depends}
 Recommends: pigpio
 Description: Python module which talks to the pigpio daemon (Python 3)
-  Library for the Raspberry which allows control of the General Purpose Input
-  Outputs (GPIO).
+ Pigpio is a set of software which allows control of the General Purpose Input
+ Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
+ in Debian as the server side is incompatible with Debian kernels.
+ .
+ This package provides the python 3 client library.
