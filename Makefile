@@ -83,7 +83,7 @@ clean:
 ifeq ($(DESTDIR),)
   PYINSTALLARGS =
 else
-  PYINSTALLARGS = --root=$(DESTDIR)
+  PYINSTALLARGS = --install-layout=deb --root=$(DESTDIR)
 endif
 
 install:	$(ALL)

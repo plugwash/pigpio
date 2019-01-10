@@ -9,3 +9,12 @@
  exec_prefix = $(prefix)
  bindir = $(exec_prefix)/bin
  includedir = $(prefix)/include
+@@ -83,7 +83,7 @@ clean:
+ ifeq ($(DESTDIR),)
+   PYINSTALLARGS =
+ else
+-  PYINSTALLARGS = --root=$(DESTDIR)
++  PYINSTALLARGS = --install-layout=deb --root=$(DESTDIR)
+ endif
+ 
+ install:	$(ALL)
