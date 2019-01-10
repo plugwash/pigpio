@@ -1,0 +1,48 @@
+From: Peter Michael Green <plugwash@debian.org>
+Date: Thu, 10 Jan 2019 15:14:35 +0000
+X-Dgit-Generated: 1.68-1 62ec7220f74092d1ccfa9b156f09c5a2bcd5b50e
+Subject: Remove broken comments from top of manpages.
+
+
+---
+
+--- pigpio-1.68.orig/pig2vcd.1
++++ pigpio-1.68/pig2vcd.1
+@@ -1,7 +1,4 @@
+ 
+-." Process this file with
+-." groff -man -Tascii pig2vcd.1
+-."
+ .TH pig2vcd 1 2012-2018 Linux "pigpio archive"
+ .SH NAME
+ pig2vd - A utility to convert pigpio notifications to VCD.
+--- pigpio-1.68.orig/pigpiod_if.3
++++ pigpio-1.68/pigpiod_if.3
+@@ -1,7 +1,4 @@
+ 
+-." Process this file with
+-." groff -man -Tascii pigpiod_if.3
+-."
+ .TH pigpiod_if 3 2012-2018 Linux "pigpio archive"
+ .SH NAME
+ pigpiod_if - A C library to interface to the pigpio daemon.
+--- pigpio-1.68.orig/pigpiod_if2.3
++++ pigpio-1.68/pigpiod_if2.3
+@@ -1,7 +1,4 @@
+ 
+-." Process this file with
+-." groff -man -Tascii pigpiod_if2.3
+-."
+ .TH pigpiod_if2 3 2012-2018 Linux "pigpio archive"
+ .SH NAME
+ pigpiod_if2 - A C library to interface to the pigpio daemon.
+--- pigpio-1.68.orig/pigs.1
++++ pigpio-1.68/pigs.1
+@@ -1,7 +1,4 @@
+ 
+-." Process this file with
+-." groff -man -Tascii foo.1
+-."
+ .TH pigs 1 2012-2018 Linux "pigpio archive"
+ .SH NAME
+ pigs - command line socket access to the pigpio daemon.

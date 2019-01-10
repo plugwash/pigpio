@@ -7,3 +7,4 @@
 08-dont-install-libs-as-manpages.patch
 09-filelayout.patch
 10-use-pthread-for-shared-libs.patch
+remove-broken-comments-from-top-of-manpa.patch
