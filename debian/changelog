@@ -1,3 +1,20 @@
+pigpio (1.68-1) unstable; urgency=medium
+
+  * Initial upload to Debian.
+  * Update debian/copyright with far more detail.
+  * Package only client stuff for now, the server stuff is incompatible with
+    Debian kernels.
+  * Update to upstream release 68
+  * Apply upstream fixes since release 68
+    + Make DESTDIR work correctly.
+    + Make "make uninstall" uninstall all man pages.
+    + Add soversion to shared libraries.
+  * Apply patches to add raspberry pi detection and make code build on
+    64-bit without warnings.
+  * Split packaging to comply with Debian policy. 
+
+ -- Peter Michael Green <plugwash@debian.org>  Thu, 10 Jan 2019 12:31:08 +0000
+
 pigpio (1.64-1) stretch; urgency=medium
 
   * Upstream release V64
