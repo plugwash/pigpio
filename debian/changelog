@@ -14,6 +14,7 @@ pigpio (1.68-1) unstable; urgency=medium
   * Split packaging to comply with Debian policy.
   * Update standards version to 4.2.0
   * Build-depend on debhelper (>= 9.20160709) instead of dh-systemd
+  * Remove ancient python version fields.
 
  -- Peter Michael Green <plugwash@debian.org>  Thu, 10 Jan 2019 12:31:08 +0000
 

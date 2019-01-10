@@ -6,8 +6,6 @@ Build-Depends: debhelper (>= 9.20160709), dh-python, python-all, python-setuptoo
   python3-all, python3-setuptools
 Standards-Version: 4.2.0
 Homepage: http://abyz.co.uk/rpi/pigpio/
-X-Python-Version: >= 2.6
-X-Python3-Version: >= 3.2
 
 Package: libpigpiod-if2-1
 Architecture: any
