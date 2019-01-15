@@ -9,7 +9,9 @@ Homepage: http://abyz.co.uk/rpi/pigpio/
 
 Package: libpigpiod-if2-1
 Architecture: any
+Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: pigpio (<< 1.68-1)
 Description: Client library for Raspberry Pi GPIO control
  Pigpio is a set of software which allows control of the General Purpose Input
  Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
@@ -19,7 +21,9 @@ Description: Client library for Raspberry Pi GPIO control
 
 Package: libpigpiod-if1
 Architecture: any
+Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: pigpio (<< 1.68-1)
 Description: Client library for Raspberry Pi GPIO control (deprecated)
  Pigpio is a set of software which allows control of the General Purpose Input
  Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
@@ -29,7 +33,9 @@ Description: Client library for Raspberry Pi GPIO control (deprecated)
 
 Package: libpigpiod-if-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpigpiod-if1 (= ${binary:Version}), libpigpiod-if2-1 (= ${binary:Version})
+Conflicts: pigpio (<< 1.68-1)
 Description: Client tools for Raspberry Pi GPIO control
  Pigpio is a set of software which allows control of the General Purpose Input
  Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
@@ -41,6 +47,7 @@ Description: Client tools for Raspberry Pi GPIO control
 Package: pigpio-tools
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: pigpio (<< 1.68-1)
 Description: Client tools for Raspberry Pi GPIO control
  Pigpio is a set of software which allows control of the General Purpose Input
  Outputs (GPIO) locally or remotely. Currently only the client side is Packaged

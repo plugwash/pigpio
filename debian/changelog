@@ -1,3 +1,11 @@
+pigpio (1.68-2) unstable; urgency=medium
+
+  * Put packages into more appropriate sections.
+  * Add dependencies on library packages to dev packages.
+  * Add conflicts with old Raspberry pi foundatoin pigpio packages.
+
+ -- Peter Michael Green <plugwash@debian.org>  Tue, 15 Jan 2019 23:01:01 +0000
+
 pigpio (1.68-1) unstable; urgency=medium
 
   * Initial upload to Debian (Closes: 908787).
