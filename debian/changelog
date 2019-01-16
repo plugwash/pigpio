@@ -1,3 +1,9 @@
+pigpio (1.68-3) UNRELEASED; urgency=medium
+
+  * Fix short description for libpigpiod-if-dev package.
+
+ -- Peter Michael Green <plugwash@debian.org>  Wed, 16 Jan 2019 23:17:28 +0000
+
 pigpio (1.68-2) unstable; urgency=medium
 
   * Put packages into more appropriate sections.

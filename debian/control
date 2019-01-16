@@ -36,7 +36,7 @@ Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libpigpiod-if1 (= ${binary:Version}), libpigpiod-if2-1 (= ${binary:Version})
 Conflicts: pigpio (<< 1.68-1)
-Description: Client tools for Raspberry Pi GPIO control
+Description: Development headers for client libraries for Raspberry Pi GPIO control
  Pigpio is a set of software which allows control of the General Purpose Input
  Outputs (GPIO) locally or remotely. Currently only the client side is Packaged
  in Debian as the server side is incompatible with Debian kernels.
