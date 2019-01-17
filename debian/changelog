@@ -1,6 +1,7 @@
 pigpio (1.68-3) UNRELEASED; urgency=medium
 
   * Fix short description for libpigpiod-if-dev package.
+  * Remove systemd stuff in debian/rules, since we don't ship the server.
 
  -- Peter Michael Green <plugwash@debian.org>  Wed, 16 Jan 2019 23:17:28 +0000
 
