@@ -3,6 +3,7 @@ pigpio (1.68-3) UNRELEASED; urgency=medium
   * Fix short description for libpigpiod-if-dev package.
   * Remove systemd stuff in debian/rules, since we don't ship the server.
   * Fix some screwups in 64-bit patch where PRIX64 was used where PRIXPTR should have been used.
+  * Enable parallel building (Closes: 920142)
 
  -- Peter Michael Green <plugwash@debian.org>  Wed, 16 Jan 2019 23:17:28 +0000
 
