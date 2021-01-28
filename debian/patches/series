@@ -1,2 +1,3 @@
 09-filelayout.patch
 remove-broken-comments-from-top-of-manpa.patch
+fix-detection-of-whether-or-not-the-syst.patch

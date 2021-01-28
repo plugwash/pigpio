@@ -1,0 +1,19 @@
+From: Peter Michael Green <plugwash@debian.org>
+Date: Thu, 28 Jan 2021 20:18:56 +0000
+X-Dgit-Generated: 1.78-1 f44ff825f6955d6531b13ed21ac44a3e17aeb192
+Subject: Fix detection of whether or not the system is a raspberry pi.
+
+
+---
+
+--- pigpio-1.78.orig/pigpio.c
++++ pigpio-1.78/pigpio.c
+@@ -13754,7 +13754,7 @@ unsigned gpioHardwareRevision(void)
+ 
+    if ((rev & 0x800000) == 0) /* old rev code */
+    {
+-      if (rev < 0x0016) /* all BCM2835 */
++      if ((rev > 0) && (rev < 0x0016)) /* all BCM2835 */
+       {
+          pi_ispi = 1;
+          piCores = 1;
