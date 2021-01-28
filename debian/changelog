@@ -1,3 +1,10 @@
+pigpio (1.78-1) unstable; urgency=medium
+
+  * New upstream release.
+    + adds pi4 support (though server is currently disabled in Debian package)
+
+ -- Peter Michael Green <plugwash@debian.org>  Thu, 28 Jan 2021 19:08:40 +0000
+
 pigpio (1.68-4) unstable; urgency=medium
 
   * Remove python 2 support (Closes: 937289).

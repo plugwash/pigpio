@@ -13,7 +13,7 @@ Subject: Remove broken comments from top of manpages.
 -." Process this file with
 -." groff -man -Tascii pig2vcd.1
 -."
- .TH pig2vcd 1 2012-2018 Linux "pigpio archive"
+ .TH pig2vcd 1 2012-2020 Linux "pigpio archive"
  .SH NAME
  pig2vd - A utility to convert pigpio notifications to VCD.
 --- pigpio-1.68.orig/pigpiod_if.3
@@ -23,7 +23,7 @@ Subject: Remove broken comments from top of manpages.
 -." Process this file with
 -." groff -man -Tascii pigpiod_if.3
 -."
- .TH pigpiod_if 3 2012-2018 Linux "pigpio archive"
+ .TH pigpiod_if 3 2012-2020 Linux "pigpio archive"
  .SH NAME
  pigpiod_if - A C library to interface to the pigpio daemon.
 --- pigpio-1.68.orig/pigpiod_if2.3
@@ -33,7 +33,7 @@ Subject: Remove broken comments from top of manpages.
 -." Process this file with
 -." groff -man -Tascii pigpiod_if2.3
 -."
- .TH pigpiod_if2 3 2012-2018 Linux "pigpio archive"
+ .TH pigpiod_if2 3 2012-2020 Linux "pigpio archive"
  .SH NAME
  pigpiod_if2 - A C library to interface to the pigpio daemon.
 --- pigpio-1.68.orig/pigs.1
@@ -43,6 +43,6 @@ Subject: Remove broken comments from top of manpages.
 -." Process this file with
 -." groff -man -Tascii foo.1
 -."
- .TH pigs 1 2012-2018 Linux "pigpio archive"
+ .TH pigs 1 2012-2020 Linux "pigpio archive"
  .SH NAME
  pigs - command line socket access to the pigpio daemon.
