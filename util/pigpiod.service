@@ -2,7 +2,8 @@
 Description=Pigpio daemon
 
 [Service]
-Type=simple
+Type=forking
+PIDFile=pigpio.pid
 ExecStart=/usr/bin/pigpiod
 
 [Install]

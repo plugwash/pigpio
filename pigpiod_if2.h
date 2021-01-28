@@ -30,7 +30,7 @@ For more information, please refer to <http://unlicense.org/>
 
 #include "pigpio.h"
 
-#define PIGPIOD_IF2_VERSION 13
+#define PIGPIOD_IF2_VERSION 17
 
 /*TEXT
 
@@ -104,7 +104,7 @@ ESSENTIAL
 pigpio_start               Connects to a pigpio daemon
 pigpio_stop                Disconnects from a pigpio daemon
 
-BEGINNER
+BASIC
 
 set_mode                   Set a GPIO mode
 get_mode                   Get a GPIO mode
@@ -114,28 +114,29 @@ set_pull_up_down           Set/clear GPIO pull up/down resistor
 gpio_read                  Read a GPIO
 gpio_write                 Write a GPIO
 
+PWM_(overrides_servo_commands_on_same_GPIO)
+
 set_PWM_dutycycle          Start/stop PWM pulses on a GPIO
+set_PWM_frequency          Configure PWM frequency for a GPIO
+set_PWM_range              Configure PWM range for a GPIO
+
 get_PWM_dutycycle          Get the PWM dutycycle in use on a GPIO
+get_PWM_frequency          Get configured PWM frequency for a GPIO
+get_PWM_range              Get configured PWM range for a GPIO
+
+get_PWM_real_range         Get underlying PWM range for a GPIO
+
+Servo_(overrides_PWM_commands_on_same_GPIO)
 
 set_servo_pulsewidth       Start/stop servo pulses on a GPIO
-get_servo_pulsewidth       Get the servo pulsewidth in use on a GPIO
 
-callback                   Create GPIO level change callback
-callback_ex                Create GPIO level change callback, extended
-callback_cancel            Cancel a callback
-wait_for_edge              Wait for GPIO level change
+get_servo_pulsewidth       Get the servo pulsewidth in use on a GPIO
 
 INTERMEDIATE
 
 gpio_trigger               Send a trigger pulse to a GPIO.
 
 set_watchdog               Set a watchdog on a GPIO.
-
-set_PWM_range              Configure PWM range for a GPIO
-get_PWM_range              Get configured PWM range for a GPIO
-
-set_PWM_frequency          Configure PWM frequency for a GPIO
-get_PWM_frequency          Get configured PWM frequency for a GPIO
 
 read_bank_1                Read all GPIO in bank 1
 read_bank_2                Read all GPIO in bank 2
@@ -146,35 +147,52 @@ clear_bank_2               Clear selected GPIO in bank 2
 set_bank_1                 Set selected GPIO in bank 1
 set_bank_2                 Set selected GPIO in bank 2
 
+callback                   Create GPIO level change callback
+callback_ex                Create GPIO level change callback, extended
+
+callback_cancel            Cancel a callback
+
+wait_for_edge              Wait for GPIO level change
+
 start_thread               Start a new thread
 stop_thread                Stop a previously started thread
 
 ADVANCED
-
-get_PWM_real_range         Get underlying PWM range for a GPIO
 
 notify_open                Request a notification handle
 notify_begin               Start notifications for selected GPIO
 notify_pause               Pause notifications
 notify_close               Close a notification
 
-bb_serial_read_open        Opens a GPIO for bit bang serial reads
-bb_serial_read             Reads bit bang serial data from a GPIO
-bb_serial_read_close       Closes a GPIO for bit bang serial reads
-bb_serial_invert           Invert serial logic (1 invert, 0 normal)
-
 hardware_clock             Start hardware clock on supported GPIO
+
 hardware_PWM               Start hardware PWM on supported GPIO
 
 set_glitch_filter          Set a glitch filter on a GPIO
 set_noise_filter           Set a noise filter on a GPIO
 
-get_pad_strength           Gets a pads drive strength
 set_pad_strength           Sets a pads drive strength
+get_pad_strength           Gets a pads drive strength
 
 shell_                     Executes a shell command
 
-SCRIPTS
+Custom
+
+custom_1                   User custom function 1
+custom_2                   User custom function 2
+
+Events
+
+event_callback            Sets a callback for an event
+event_callback_ex         Sets a callback for an event, extended
+
+event_callback_cancel     Cancel an event callback
+
+event_trigger             Triggers an event
+
+wait_for_event            Wait for an event
+
+Scripts
 
 store_script               Store a script
 run_script                 Run a stored script
@@ -183,80 +201,42 @@ script_status              Get script status and parameters
 stop_script                Stop a running script
 delete_script              Delete a stored script
 
-WAVES
-
-wave_clear                 Deletes all waveforms
-
-wave_add_new               Starts a new waveform
-wave_add_generic           Adds a series of pulses to the waveform
-wave_add_serial            Adds serial data to the waveform
-
-wave_create                Creates a waveform from added data
-wave_delete                Deletes one or more waveforms
-
-wave_send_once             Transmits a waveform once
-wave_send_repeat           Transmits a waveform repeatedly
-wave_send_using_mode       Transmits a waveform in the chosen mode
-
-wave_chain                 Transmits a chain of waveforms
-
-wave_tx_at                 Returns the current transmitting waveform
-wave_tx_busy               Checks to see if the waveform has ended
-wave_tx_stop               Aborts the current waveform
-
-wave_get_micros            Length in microseconds of the current waveform
-wave_get_high_micros       Length of longest waveform so far
-wave_get_max_micros        Absolute maximum allowed micros
-
-wave_get_pulses            Length in pulses of the current waveform
-wave_get_high_pulses       Length of longest waveform so far
-wave_get_max_pulses        Absolute maximum allowed pulses
-
-wave_get_cbs               Length in cbs of the current waveform
-wave_get_high_cbs          Length of longest waveform so far
-wave_get_max_cbs           Absolute maximum allowed cbs
-
 I2C
 
 i2c_open                   Opens an I2C device
 i2c_close                  Closes an I2C device
 
 i2c_write_quick            smbus write quick
-i2c_write_byte             smbus write byte
-i2c_read_byte              smbus read byte
-i2c_write_byte_data        smbus write byte data
-i2c_write_word_data        smbus write word data
-i2c_read_byte_data         smbus read byte data
-i2c_read_word_data         smbus read word data
-i2c_process_call           smbus process call
-i2c_write_block_data       smbus write block data
-i2c_read_block_data        smbus read block data
-i2c_block_process_call     smbus block process call
 
-i2c_write_i2c_block_data   smbus write I2C block data
+i2c_read_byte              smbus read byte
+i2c_write_byte             smbus write byte
+
+i2c_read_byte_data         smbus read byte data
+i2c_write_byte_data        smbus write byte data
+
+i2c_read_word_data         smbus read word data
+i2c_write_word_data        smbus write word data
+
+i2c_read_block_data        smbus read block data
+i2c_write_block_data       smbus write block data
+
 i2c_read_i2c_block_data    smbus read I2C block data
+i2c_write_i2c_block_data   smbus write I2C block data
 
 i2c_read_device            Reads the raw I2C device
 i2c_write_device           Writes the raw I2C device
 
+i2c_process_call           smbus process call
+i2c_block_process_call     smbus block process call
+
 i2c_zip                    Performs multiple I2C transactions
+
+I2C_BIT_BANG
 
 bb_i2c_open                Opens GPIO for bit banging I2C
 bb_i2c_close               Closes GPIO for bit banging I2C
-bb_i2c_zip                 Performs multiple bit banged I2C transactions
 
-SPI
-
-spi_open                   Opens a SPI device
-spi_close                  Closes a SPI device
-
-spi_read                   Reads bytes from a SPI device
-spi_write                  Writes bytes to a SPI device
-spi_xfer                   Transfers bytes with a SPI device
-
-bb_spi_open                Opens GPIO for bit banging SPI
-bb_spi_close               Closes GPIO for bit banging SPI
-bb_spi_xfer                Transfers bytes with bit banging SPI
+bb_i2c_zip                 Performs bit banged I2C transactions
 
 I2C/SPI_SLAVE
 
@@ -268,34 +248,86 @@ SERIAL
 serial_open                Opens a serial device
 serial_close               Closes a serial device
 
-serial_write_byte          Writes a byte to a serial device
 serial_read_byte           Reads a byte from a serial device
-serial_write               Writes bytes to a serial device
+serial_write_byte          Writes a byte to a serial device
+
 serial_read                Reads bytes from a serial device
+serial_write               Writes bytes to a serial device
 
 serial_data_available      Returns number of bytes ready to be read
+
+SERIAL_BIT_BANG_(read_only)
+
+bb_serial_read_open        Opens a GPIO for bit bang serial reads
+bb_serial_read_close       Closes a GPIO for bit bang serial reads
+
+bb_serial_invert           Invert serial logic (1 invert, 0 normal)
+
+bb_serial_read             Reads bit bang serial data from a GPIO
+
+SPI
+
+spi_open                   Opens a SPI device
+spi_close                  Closes a SPI device
+
+spi_read                   Reads bytes from a SPI device
+spi_write                  Writes bytes to a SPI device
+spi_xfer                   Transfers bytes with a SPI device
+
+SPI_BIT_BANG
+
+bb_spi_open                Opens GPIO for bit banging SPI
+bb_spi_close               Closes GPIO for bit banging SPI
+
+bb_spi_xfer                Transfers bytes with bit banging SPI
 
 FILES
 
 file_open                  Opens a file
 file_close                 Closes a file
+
 file_read                  Reads bytes from a file
 file_write                 Writes bytes to a file
+
 file_seek                  Seeks to a position within a file
+
 file_list                  List files which match a pattern
 
-EVENTS
+WAVES
 
-event_callback            Sets a callback for an event
-event_callback_ex         Sets a callback for an event, extended
-event_callback_cancel     Cancel an event callback
-event_trigger             Triggers an event
-wait_for_event            Wait for an event
+wave_clear                 Deletes all waveforms
 
-CUSTOM
+wave_add_new               Starts a new waveform
+wave_add_generic           Adds a series of pulses to the waveform
+wave_add_serial            Adds serial data to the waveform
 
-custom_1                   User custom function 1
-custom_2                   User custom function 2
+wave_create                Creates a waveform from added data
+wave_create_and_pad        Creates a waveform of fixed size from added data
+wave_delete                Deletes one or more waveforms
+
+wave_send_once             Transmits a waveform once
+wave_send_repeat           Transmits a waveform repeatedly
+wave_send_using_mode       Transmits a waveform in the chosen mode
+
+wave_chain                 Transmits a chain of waveforms
+
+wave_tx_at                 Returns the current transmitting waveform
+
+wave_tx_busy               Checks to see if the waveform has ended
+
+wave_tx_stop               Aborts the current waveform
+
+wave_get_cbs               Length in cbs of the current waveform
+wave_get_high_cbs          Length of longest waveform so far
+wave_get_max_cbs           Absolute maximum allowed cbs
+
+wave_get_micros            Length in micros of the current waveform
+wave_get_high_micros       Length of longest waveform so far
+wave_get_max_micros        Absolute maximum allowed micros
+
+wave_get_pulses            Length in pulses of the current waveform
+wave_get_high_pulses       Length of longest waveform so far
+wave_get_max_pulses        Absolute maximum allowed pulses
 
 UTILITIES
 
@@ -1049,7 +1081,7 @@ Frequencies above 30MHz are unlikely to work.
 . .
        pi: >=0 (as returned by [*pigpio_start*]).
      gpio: see description
-frequency: 0 (off) or 4689-250000000 (250M)
+frequency: 0 (off) or 4689-250M (13184-375M for the BCM2711)
 . .
 
 Returns 0 if OK, otherwise PI_NOT_PERMITTED, PI_BAD_GPIO,
@@ -1096,7 +1128,7 @@ daemon is started (option -t).
 . .
      pi: >=0 (as returned by [*pigpio_start*]).
    gpio: see descripton
-PWMfreq: 0 (off) or 1-125000000 (125M)
+PWMfreq: 0 (off) or 1-125M (1-187.5M for the BCM2711)
 PWMduty: 0 (off) to 1000000 (1M)(fully on)
 . .
 
@@ -1124,12 +1156,12 @@ The GPIO must be one of the following.
 . .
 
 The actual number of steps beween off and fully on is the
-integral part of 250 million divided by PWMfreq.
+integral part of 250M/PWMfreq (375M/PWMfreq for the BCM2711).
 
-The actual frequency set is 250 million / steps.
+The actual frequency set is 250M/steps (375M/steps for the BCM2711).
 
-There will only be a million steps for a PWMfreq of 250.
-Lower frequencies will have more steps and higher
+There will only be a million steps for a PWMfreq of 250 (375 for
+the BCM2711). Lower frequencies will have more steps and higher
 frequencies will have fewer steps.  PWMduty is
 automatically scaled to take this into account.
 D*/
@@ -1342,6 +1374,49 @@ D*/
 
 
 /*F*/
+int wave_create_and_pad(int pi, int percent);
+/*D
+This function creates a waveform like [*wave_create*] but pads the consumed
+resources. Where percent gives the percentage of the resources to use (in terms
+of the theoretical maximum, not the current amount free). This allows the reuse 
+of deleted waves while a transmission is active.
+
+. .
+pi: >=0 (as returned by [*pigpio_start*]).
+percent: 0-100, size of waveform as percentage of maximum available.
+. .
+
+The data provided by the [*wave_add_**] functions are consumed by this
+function.
+
+As many waveforms may be created as there is space available. The
+wave id is passed to [*wave_send_**] to specify the waveform to transmit.
+
+A usage would be the creation of two waves where one is filled while the other
+is being transmitted. Each wave is assigned 50% of the resources.
+This buffer structure allows the transmission of infinite wave sequences.
+
+Normal usage:
+
+Step 1. [*wave_clear*] to clear all waveforms and added data.
+
+Step 2. [*wave_add_**] calls to supply the waveform data.
+
+Step 3. [*wave_create_and_pad*] to create a waveform of uniform size.
+
+Step 4. [*wave_send_**] with the id of the waveform to transmit.
+
+Repeat steps 2-4 as needed.
+
+Step 5. Any wave id can now be deleted and another wave of the same size
+        can be created in its place.
+
+Returns the new waveform id if OK, otherwise PI_EMPTY_WAVEFORM,
+PI_NO_WAVEFORM_ID, PI_TOO_MANY_CBS, or PI_TOO_MANY_OOL.
+D*/
+
+
+/*F*/
 int wave_delete(int pi, unsigned wave_id);
 /*D
 This function deletes the waveform with id wave_id.
@@ -1534,7 +1609,7 @@ D*/
 int wave_tx_at(int pi);
 /*D
 This function returns the id of the waveform currently being
-transmitted.
+transmitted by [*wave_send**].  Chained waves are not supported.
 
 . .
 pi: >=0 (as returned by [*pigpio_start*]).
@@ -3321,6 +3396,37 @@ tick        32 bit   The number of microseconds since boot
                      WARNING: this wraps around from
                      4294967295 to 0 roughly every 72 minutes
 . .
+
+The GPIO are sampled at a rate set when the pigpio daemon
+is started (default 5 us).
+
+The number of samples per second is given in the following table.
+
+. .
+              samples
+              per sec
+
+         1  1,000,000
+         2    500,000
+sample   4    250,000
+rate     5    200,000
+(us)     8    125,000
+        10    100,000
+. .
+
+GPIO level changes shorter than the sample rate may be missed.
+
+The daemon software which generates the callbacks is triggered
+1000 times per second.  The callbacks will be called once per
+level change since the last time they were called.
+i.e. The callbacks will get all level changes but there will
+be a latency.
+
+If you want to track the level of more than one GPIO do so by
+maintaining the state in the callback.  Do not use [*gpio_read*].
+Remember the event that triggered the callback may have
+happened several milliseconds before and the GPIO may have
+changed level many times since then.
 D*/
 
 /*F*/
@@ -3398,9 +3504,18 @@ D*/
 /*F*/
 int bsc_xfer(int pi, bsc_xfer_t *bscxfer);
 /*D
-This function provides a low-level interface to the
-SPI/I2C Slave peripheral.  This peripheral allows the
-Pi to act as a slave device on an I2C or SPI bus.
+This function provides a low-level interface to the SPI/I2C Slave
+peripheral on the BCM chip.
+
+This peripheral allows the Pi to act as a hardware slave device
+on an I2C or SPI bus.
+
+This is not a bit bang version and as such is OS timing
+independent. The bus timing is handled directly by the chip.
+
+The output process is simple. You simply append data to the FIFO
+buffer on the chip.  This works like a queue, you add data to the
+queue and the master removes it.
 
 I can't get SPI to work properly.  I tried with a
 control word of 0x303 and swapped MISO and MOSI.
@@ -3424,8 +3539,9 @@ typedef struct
 } bsc_xfer_t;
 . .
 
-To start a transfer set control (see below) and copy the bytes to
-be sent (if any) to txBuf and set the byte count in txCnt.
+To start a transfer set control (see below), copy the bytes to
+be added to the transmit FIFO (if any) to txBuf and set txCnt to
+the number of copied bytes.
 
 Upon return rxCnt will be set to the number of received bytes placed
 in rxBuf.
@@ -3442,11 +3558,19 @@ less than requested if the FIFO already contained untransmitted data).
 Note that the control word sets the BSC mode.  The BSC will stay in
 that mode until a different control word is sent.
 
-The BSC peripheral uses GPIO 18 (SDA) and 19 (SCL) in I2C mode
-and GPIO 18 (MOSI), 19 (SCLK), 20 (MISO), and 21 (CE) in SPI mode.  You
-need to swap MISO/MOSI between master and slave.
+GPIO used for models other than those based on the BCM2711.
 
-When a zero control word is received GPIO 18-21 will be reset
+    @ SDA @ SCL @ MOSI @ SCLK @ MISO @ CE
+I2C @ 18  @ 19  @ -    @ -    @ -    @ -
+SPI @ -   @ -   @ 18   @ 19   @ 20   @ 21
+
+GPIO used for models based on the BCM2711 (e.g. the Pi4B).
+
+    @ SDA @ SCL @ MOSI @ SCLK @ MISO @ CE
+I2C @ 10  @ 11  @ -    @ -    @ -    @ -
+SPI @ -   @ -   @ 10   @ 11   @ 9    @ 8
+
+When a zero control word is received the used GPIO will be reset
 to INPUT mode.
 
 control consists of the following bits.
@@ -3522,6 +3646,9 @@ int bsc_i2c(int pi, int i2c_addr, bsc_xfer_t *bscxfer);
 /*D
 This function allows the Pi to act as a slave I2C device.
 
+This function is not available on the BCM2711 (e.g.as
+used in the Pi4B).
+
 The data bytes (if any) are written to the BSC transmit
 FIFO and the bytes in the BSC receive FIFO are returned.
 
@@ -3551,8 +3678,7 @@ If there was an error the status will be less than zero
 (and will contain the error code).
 
 Note that an i2c_address of 0 may be used to close
-the BSC device and reassign the used GPIO (18/19)
-as inputs.
+the BSC device and reassign the used GPIO as inputs.
 D*/
 
 /*F*/
@@ -3743,7 +3869,7 @@ typedef void (*CBFuncEx_t)
 char::
 A single character, an 8 bit quantity able to store 0-255.
 
-clkfreq::4689-250000000 (250M)
+clkfreq::4689-250M (13184-375M for the BCM2711)
 The hardware clock frequency.
 
 count::
@@ -4001,6 +4127,9 @@ high and low levels.
 *param::
 An array of script parameters.
 
+percent:: 0-100
+The size of waveform as percentage of maximum available.
+
 pi::
 An integer defining a connected Pi.  The value is returned by
 [*pigpio_start*] upon success.
@@ -4047,12 +4176,13 @@ The hardware PWM dutycycle.
 #define PI_HW_PWM_RANGE 1000000
 . .
 
-PWMfreq::1-125000000 (125M)
+PWMfreq::1-125M (1-187.5M for the BCM2711)
 The hardware PWM frequency.
 
 . .
 #define PI_HW_PWM_MIN_FREQ 1
 #define PI_HW_PWM_MAX_FREQ 125000000
+#define PI_HW_PWM_MAX_FREQ_2711 187500000
 . .
 
 range::25-40000
